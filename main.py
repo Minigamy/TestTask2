@@ -42,12 +42,12 @@ def create_device(db: Session = Depends(get_db)):
 
 @app.post("/group devices")
 def group_devices(db: Session = Depends(get_db)):
-    """Получаем список всех устройств, которые не привязаны к таблице endpoints и группируем их по типу устройств."""
+    """Получаем список всех устройств, которые не привязаны к таблице endpoints и группируем их по типу устройств./
+     Задание №3"""
     endpoints = db.query(Endpoints.device_id)
     group_tables = db.query(func.count(Devices.dev_type), Devices.dev_type).filter(~Devices.id.in_(endpoints)) \
-        .group_by(Devices.dev_type).all()
-    a = group_tables[0][0]
-    return a
+        .group_by(Devices.dev_type)
+    return {"result": group_tables}
 
 
 if __name__ == "__main__":
