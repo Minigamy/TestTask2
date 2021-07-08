@@ -14,7 +14,7 @@ class Devices(Base):
     __tablename__ = "devices"
 
     id = Column(BigInteger, primary_key=True)
-    dev_id = Column(VARCHAR(200), nullable=True)
+    dev_id = Column(VARCHAR(200), nullable=False)
     dev_type = Column(VARCHAR(120), nullable=False)
 
 

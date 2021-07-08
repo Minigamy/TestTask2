@@ -8,7 +8,7 @@ def sorting(word):
 
 
 def mac_generator():
-    """Функция, которая генерирует случайный мак адрес"""
+    """Функция, которая возвращает случайный мак адрес"""
     mac = [0x00, 0x24, 0x81,
            random.randint(0x00, 0x7f),
            random.randint(0x00, 0xff),
